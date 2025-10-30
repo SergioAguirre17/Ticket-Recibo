@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo Telefónico</title>
+    <style>
+
+.titulo{ text-align: center;
+font-size: 2em; 
+color: #2069b3;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+margin-bottom: 30px;}
+
+body{ font-family: sans-serif;
+background-color: rgb(245, 245, 245);
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 0;
+padding: 20px;
+font-size: small;}
+
+.sub{ background-color: #ffffff;
+border: 1px solid #cccc;
+box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+padding: 15px;
+margin: 10px;
+width: 600px;
+border-radius: 8px;}
+
+.subtitulo{ font-size: 1.2em;
+color: #0066cc;
+margin-bottom: 10px;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);}
+
+input[type="text"], 
+input[type="number"], 
+select{ width: 100%;
+padding: 8px;
+margin-top: 5px;
+border: 1px solid #aaa;
+border-radius: 6px;
+box-sizing: border-box;}
+
+.boton{ margin-top: 10px;
+padding: 10px 20px;
+border: none;
+border-radius: 6px;
+background-color: #007acc;
+color: white;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+cursor: pointer;}
+
+.boton:hover{ background-color: #005f99;}
+
+.resultado{ text-align: center;}
+
+    </style>
+</head>
+<body>
+
+    <form action="" method="get" id="CalculoMinutos">
+        <h1 class="titulo" style="text-align: center;">Recibo Telefónico</h1>
+
+        <div class="sub">
+            <h2 class="subtitulo">Nobre del Cliente</h2>
+            <label for="Cliente">
+                <input type="text" id="Cliente" name="Cliente">
+            </label>
+        </div>
+
+        <div class="sub">
+            <h2 class="subtitulo">Calcular Minutos</h2>
+            <label for="Minutos">Minutos de celular (10.00 MXN c/u)
+                <input type="number" placeholder="100" id="Minutos" name="Minutos" value="10">
+            </label>
+        </div>
+
+        <div class="sub">
+            <h2 class="subtitulo">Tipo de Plan</h2>
+            <label for="Plan">
+                <input type="radio" id="Tel" name="Plan" value="Tel">Solo teléfono (100 MXN)
+            </label>
+            <label for="Plan">
+                <input type="radio" id="Internet" name="Plan" value="Internet">Teléfono + Internet (200 MXN)
+            </label>
+            <label for="Plan">
+                <input type="radio" id="Tv" name="Plan" value="Tv">Teléfono + Internet + TV (300 MXN)
+            </label>
+        </div>
+
+        <div class="sub">
+            <h2 class="subtitulo">Servicios Adicionales</h2>
+            <label for="Servicios">
+                <input type="checkbox" name="Antivirus" id="Antivirus" value="Antivirus">Antivirus (50 MXN)
+                <input type="checkbox" name="Nube" id="Nube" value="Nube">Servicio de Nube (150 MXN)
+                <input type="checkbox" name="Web" id="Web" value="Web">Web Services (250 MXN)
+            </label>
+        </div>
+
+        <div class="sub">
+            <h2 class="subtitulo">Paquetes</h2>
+            <label for="Paquetes">
+                <select name="Paquetes" id="Paquetes">
+                    <option value="None" name="None" id="None">Ninguno (00.00 MXN)</option>
+                    <option value="Residencial" name="Residencial" id="Residencial" >Residencial (200 MXN)</option>
+                    <option value="PYMES" name="PYMES" id="PYMES">PYMES (300 MXN)</option>
+                    <option value="Empresas" name="Empresas" id="Empresas">Empresas (400 MXN)</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="sub">
+            <h2 class="subtitulo">Total a Pagar</h2>
+            <input type="text" id="resultado" readonly>
+            <button class="boton" onclick="calcular()">Calcular</button>
+        </div>
+
+        <script>
+
+            var formulario; formulario = document.getElementById("CalculoMinutos");
+
+            function calcular() {
+                event.preventDefault();
+
+                var total = 0; var Minutos = formulario.Minutos.value; total = Minutos * 10;
+
+                var cliente = formulario.Cliente.value; 
+
+                if (formulario.Plan.value == "Tel") {
+                    total = total + 100; 
+                }
+                else {
+                    total = total;
+                }
+                
+                if (formulario.Plan.value == "Internet") {
+                    total = total + 200; 
+                }
+                else {
+                    total = total;
+                }
+
+                if (formulario.Plan.value == "Tv") {
+                    total = total + 300; 
+                }
+                else {
+                    total = total;
+                }
+
+
+                if (formulario.Antivirus.checked == true) {
+                    total = total + 50; 
+                }
+                else {
+                    total = total;
+                }
+
+                if (formulario.Nube.checked == true) {
+                    total = total + 150; 
+                }
+                else {
+                    total = total;
+                }
+
+                if (formulario.Web.checked == true) {
+                    total = total + 250; 
+                }
+                else {
+                    total = total;
+                }
+
+                
+
+                if (formulario.Paquetes.value == "Ninguno") {
+                    total = total + 0; 
+                } else if (formulario.Paquetes.value == "Residencial") {
+                total = total + 200
+                } else if (formulario.Paquetes.value == "PYMES") {
+                    total = total + 300; 
+                } else if (formulario.Paquetes.value == "Empresas") {
+                    total = total + 400; 
+                }
+
+                formulario.resultado.value = total + "MXN";
+
+                alert ("Total = " + total + "MXN");
+            }
+
+        </script>
+    </form>
+    
+</body>
+</html>

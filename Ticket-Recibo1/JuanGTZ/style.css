@@ -1,0 +1,76 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(66, 232, 66);
+    text-align: center;
+}
+
+#central {
+    margin: auto;
+    border: 5px black solid;
+    width: 80%;
+}
+
+#u1 {
+    color: hsl(180, 100%, 82%);
+    text-shadow: 5px 10px black;
+}
+
+#u2 {
+    color: hsl(297, 100%, 50%);
+    text-shadow: 5px 10px rgb(208, 58, 58);
+}
+
+#u3 {
+    color: hsl(94, 100%, 82%);
+    text-shadow: 5px 10px rgb(126, 9, 159);
+}
+
+#Min {
+    border: 2px grey solid;
+    padding: 15px;
+    margin: 10px;
+    background-color: #6a51b0;
+    display: table-cell;
+}
+
+#TDP {
+    border: 2px grey solid;
+    padding: 15px;
+    margin: 10px;
+    background-color: #0d4204;
+    display: table-cell;
+}
+
+#servi {
+    border: 2px grey solid;
+    padding: 15px;
+    margin: 10px;
+    background-color: #c17700;
+    display: table-cell;
+}
+
+#Paquetes {
+    border: 2px grey solid;
+    padding: 15px;
+    margin: 10px;
+    background-color: #b05151;
+    display: table-cell;
+}
+
+#button {
+    border: 2px grey solid;
+    padding: 15px;
+    margin: 10px;
+    background-color: #9db051;
+    display: table-cell;
+}
+
+input, select, button {
+    border-radius: 15px;
+    padding: 4px;
+}
+
+input:hover, select:hover, button:hover {
+    background-color: bisque;
+}

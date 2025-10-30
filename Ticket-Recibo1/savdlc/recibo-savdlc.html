@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recibo Telefónico</title>
+</head>
+
+<body>
+<div class="contenedor">
+  <h1>RECIBO TELEFÓNICO</h1>
+  <form id="calculoMinutos">
+    <label>Nombre del Cliente</label>
+    <input type="text" name="cliente">
+
+    <label for="minutos">Minutos de llamadas a celular (1.00 c/u)</label>
+    <input type="number" id="minutos" name="minutos">
+
+    <fieldset>
+      <legend>Tipo de plan</legend>
+      <label><input type="radio" name="plan" value="tel"> Solo teléfono (200.00)</label>
+      <label><input type="radio" name="plan" value="internet"> Teléfono + Internet (450.00)</label>
+      <label><input type="radio" name="plan" value="tv"> Teléfono + Internet + TV (850.00)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Otros Servicios</legend>
+      <label><input type="checkbox" name="servicio" value="30"> Antivirus (30.00)</label>
+      <label><input type="checkbox" name="servicio" value="50"> Servicios de nube (50.00)</label>
+      <label><input type="checkbox" name="servicio" value="40"> Servicios web (40.00)</label>
+    </fieldset>
+
+    <label for="paquete">Paquetes</label>
+    <select id="paquete" name="paquete">
+      <option value="0">Residencial +0%</option>
+      <option value="5">Empresarial +5%</option>
+      <option value="10">Premium +10%</option>
+    </select>
+
+    <h2>Total a pagar</h2>
+    <input type="text" id="resultado" readonly>
+
+    <button type="button" onclick="calcular()">Calculo</button>
+  </form>
+</div>
+<script src="javascript.js"></script>
