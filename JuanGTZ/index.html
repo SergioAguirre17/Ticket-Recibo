@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formularios </title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div id="central">
+        <h1> Recibo telefonico</h1>
+        <form action="index.html" id="calculoMinutos" method="get">
+            <div>
+                <h2 id="nombrecliente"> Nombre del cliente:</h2>
+                <input type="text" id="cliente" name="Cliente" value="Juanito">
+            </div>
+            <div id="Min">
+                <label for="MinLlam">Minutos de llamadas a celular: (1.00 c/u)</label>
+                <input type="number" id="MinLlam" name="MinLlam" value="100">
+            </div>
+            <div id="TDP">
+                <h2 id="u1"> Tipo de Plan</h2>
+                <label for="ST"> Solo telefono (200.00) 
+                    <input type="radio" id="ST" name="plan" value="ST">
+                </label> <br>
+                <label for="TI"> Telefono + Internet (450.00)
+                    <input type="radio" id="TI" name="plan" value="TI">
+                </label> <br>
+                <label for="TITV"> Telefono + Internet + TV (850.00)
+                    <input type="radio" id="TITV" name="plan" value="TITV">
+                </label>
+            </div>
+            <div id="servi">
+                <h2 id="u2"> Otros servicios</h2>
+                <input type="checkbox" id="av" name="av">
+                <label for="AV"> Antivirus (30.00)</label> <br>
+                <input type="checkbox" id="sn" name="sn">
+                <label for="SN"> Servicios de nube (50.00)</label> <br>
+                <input type="checkbox" id="sw" name="sw">
+                <label for="SW"> Servicios web (40.00)</label> <br>
+            </div>
+            <div id="paquetes">
+                <h2 id="u3">Paquetes</h2>
+                <select name="select" id="select">
+                    <option value="residencial"> Residencial(230.00)</option>
+                    <option value="PYMES"> PYMES(400.00)</option>
+                    <option value="EMPRESAS"> EMPRESAS(700.00)</option>
+                </select>
+            </div>
+            <div id="button">
+                <h2>TOTAL A PAGAR</h2>
+                <input type="text" id="calculo" readonly>
+                <button type="button" onclick="calcular()">Calcular Recibo</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
